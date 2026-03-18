@@ -8,6 +8,7 @@ import {
 } from "react-router";
 import type { Route } from "./+types/root";
 import "./app.css";
+import { QueryClientProvider } from "./providers";
 
 export default function Root() {
   return (
@@ -20,7 +21,9 @@ export default function Root() {
         <title>Client</title>
       </head>
       <body>
-        <Outlet />
+        <QueryClientProvider>
+          <Outlet />
+        </QueryClientProvider>
         <ScrollRestoration />
         <Scripts />
       </body>
