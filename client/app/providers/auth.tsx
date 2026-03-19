@@ -1,7 +1,11 @@
 import { contextFactory } from "@utils";
-import { useMemo, type ReactNode } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 
-interface AuthContextValue {}
+type User = { id: string } | null;
+
+interface AuthContextValue {
+  user: User;
+}
 
 const [AuthContext, useAuthContext] = contextFactory<AuthContextValue>("Auth");
 
@@ -12,9 +16,13 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
+  const [user] = useState<User>(null); // todo replace real user
+
   const ctxValue = useMemo<AuthContextValue>(() => {
-    return {};
-  }, []);
+    return {
+      user,
+    };
+  }, [user]);
 
   return (
     <AuthContext.Provider value={ctxValue}>{children}</AuthContext.Provider>
