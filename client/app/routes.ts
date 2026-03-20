@@ -4,6 +4,7 @@ import {
   layout,
   route,
 } from "@react-router/dev/routes";
+import { authRoutes } from "./routes/auth.routes";
 
 export default [
   layout("./layouts/_layout.tsx", [
@@ -11,5 +12,5 @@ export default [
     route("*", "./routes/not-found.tsx"),
   ]),
 
-  layout("./layouts/auth.tsx", [route("/dashboard", "./routes/dashboard.tsx")]),
+  layout("./layouts/auth.tsx", authRoutes),
 ] satisfies RouteConfig;
