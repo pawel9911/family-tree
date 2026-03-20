@@ -1,10 +1,12 @@
+import { useQuery } from "@tanstack/react-query";
 import { contextFactory } from "@utils";
-import { useMemo, useState, type ReactNode } from "react";
-
-type User = { id: string } | null;
+import { useMemo, type ReactNode } from "react";
+import { endpoints } from "~/api/endpoints";
+import { httpClient } from "~/lib/axios";
+import { type UserType } from "~/shared/types";
 
 interface AuthContextValue {
-  user: User;
+  user: UserType;
 }
 
 const [AuthContext, useAuthContext] = contextFactory<AuthContextValue>("Auth");
@@ -16,15 +18,23 @@ interface AuthProviderProps {
 }
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
-  const [user] = useState<User>(null); // todo replace real user
+  const { data: user, isLoading } = useQuery<UserType>({
+    queryKey: [endpoints.core.auth.getUser],
+    queryFn: () =>
+      httpClient
+        .get<UserType>(endpoints.core.auth.getUser)
+        .then((response) => response.data),
+  });
 
   const ctxValue = useMemo<AuthContextValue>(() => {
     return {
-      user,
+      user: user ?? null,
     };
   }, [user]);
 
   return (
-    <AuthContext.Provider value={ctxValue}>{children}</AuthContext.Provider>
+    <AuthContext.Provider value={ctxValue}>
+      {isLoading ? null : children}
+    </AuthContext.Provider>
   );
 };
