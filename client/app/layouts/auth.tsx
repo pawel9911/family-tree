@@ -1,5 +1,7 @@
 import { Navigate, Outlet } from "react-router";
+import { Header } from "~/components";
 import { useAuthContext } from "~/providers";
+import { Button } from "~/shared/ui";
 
 const Auth = () => {
   const { user } = useAuthContext();
@@ -10,7 +12,13 @@ const Auth = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <h1 className="text-4xl">Auth layout</h1>
+      <div className="container">
+        <Header>
+          <Button size="lg" asChild>
+            <a href="/api/logout">Wyloguj się</a>
+          </Button>
+        </Header>
+      </div>
       <main className="flex flex-1">
         <Outlet />
       </main>
