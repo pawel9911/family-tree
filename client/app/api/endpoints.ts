@@ -4,6 +4,8 @@ export const endpoints = {
   core: {
     auth: {
       getUser: createApiEndpoint("/me"),
+
+      postPaymentsIntent: createApiEndpoint("/payments-intent"),
     },
   },
 };
