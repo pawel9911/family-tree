@@ -5,6 +5,7 @@ export const endpoints = {
     auth: {
       getUser: createApiEndpoint("/me"),
 
+      postPaymentsConfirm: createApiEndpoint("/payments-confirm"),
       postPaymentsIntent: createApiEndpoint("/payments-intent"),
     },
   },
