@@ -19,4 +19,26 @@ module.exports = (app) => {
       res.status(500).send({ error: e.message });
     }
   });
+
+  app.post("/api/payments-confirm", async (req, res) => {
+    const { paymentIntentId } = req.body;
+
+    try {
+      const { status, metadata } =
+        await stripe.paymentIntents.retrieve(paymentIntentId);
+
+      if (status === "succeeded" && !metadata.processed) {
+        req.user.credits += 5;
+        await req.user.save();
+
+        await stripe.paymentIntents.update(paymentIntentId, {
+          metadata: { userId: req.user.id, processed: "true" },
+        });
+      }
+
+      res.send(req.user);
+    } catch (e) {
+      res.status(e.statusCode).send({ error: e.message });
+    }
+  });
 };
