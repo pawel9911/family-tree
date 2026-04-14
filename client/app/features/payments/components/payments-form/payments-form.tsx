@@ -31,7 +31,7 @@ export const PaymentsForm = () => {
         elements,
         clientSecret,
         confirmParams: {
-          return_url: `${globalThis.location.origin}/payments/success`,
+          return_url: `${globalThis.location.origin}/payments/confirm`,
         },
       });
     } catch (err) {
