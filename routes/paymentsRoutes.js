@@ -1,8 +1,9 @@
 const keys = require("../config/keys");
 const stripe = require("stripe")(keys.stripeSecretKey);
+const requireLogin = require("../middlewares/requireLogin");
 
 module.exports = (app) => {
-  app.post("/api/payments-intent", async (req, res) => {
+  app.post("/api/payments-intent", requireLogin, async (req, res) => {
     const { amount } = req.body;
 
     try {
@@ -20,7 +21,7 @@ module.exports = (app) => {
     }
   });
 
-  app.post("/api/payments-confirm", async (req, res) => {
+  app.post("/api/payments-confirm", requireLogin, async (req, res) => {
     const { paymentIntentId } = req.body;
 
     try {
