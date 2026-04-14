@@ -15,7 +15,7 @@ export const Header = ({ children }: HeaderProps) => {
       <Link to={user ? "/dashboard" : "/"}>
         <img src={Logo} className="max-h-16 aspect-auto" alt="logo" />
       </Link>
-      <div className="flex items-center">{children}</div>
+      <div className="flex items-center gap-2">{children}</div>
     </header>
   );
 };

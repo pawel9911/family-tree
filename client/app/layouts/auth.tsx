@@ -2,7 +2,7 @@ import { Navigate, Outlet } from "react-router";
 import { Header } from "~/components";
 import { useAuthContext } from "~/providers";
 import { Button } from "~/shared/ui";
-import { LogOut } from "lucide-react";
+import { Coins, LogOut } from "lucide-react";
 
 const Auth = () => {
   const { user } = useAuthContext();
@@ -15,6 +15,11 @@ const Auth = () => {
     <div className="min-h-screen flex flex-col">
       <div className="container">
         <Header>
+          <Button size="lg" variant="secondary" asChild>
+            <p>
+              <Coins /> {user.credits}
+            </p>
+          </Button>
           <Button size="icon-lg" asChild>
             <a href="/api/logout">
               <LogOut />
