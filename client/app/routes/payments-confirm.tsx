@@ -1,7 +1,7 @@
 import { AlertCircle, CircleCheckBig, Loader2 } from "lucide-react";
 import { useEffect } from "react";
 import { Link, Navigate, useSearchParams } from "react-router";
-import { usePostPaymentsConfirm } from "~/features/payments/api/usePostPayments";
+import { usePostPaymentsConfirm } from "~/features/payments/api/usePostPaymentsConfirm";
 import { Button } from "~/shared/ui";
 
 const PaymentsConfirm = () => {

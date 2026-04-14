@@ -5,6 +5,7 @@ import type {
   PaymentsConfirmPayload,
   PostPaymentsConfirmResponse,
 } from "../types";
+import { invalidateQuery } from "~/lib/react-query";
 
 interface PostPaymentsConfirmParams {
   payload: PaymentsConfirmPayload;
@@ -35,6 +36,7 @@ export const usePostPaymentsConfirm = ({
 }: UsePostPaymentsConfirmParams = {}) => {
   return useMutation({
     mutationFn: postPaymentsConfirm,
+    onSuccess: () => invalidateQuery([endpoints.core.auth.getUser]),
     ...options,
   });
 };
