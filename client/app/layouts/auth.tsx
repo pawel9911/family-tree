@@ -5,7 +5,7 @@ import { Button } from "~/shared/ui";
 import { Coins, LogOut } from "lucide-react";
 
 const Auth = () => {
-  const { user } = useAuthContext();
+  const { user, logout } = useAuthContext();
 
   if (!user) {
     return <Navigate to="/" replace />;
@@ -17,13 +17,11 @@ const Auth = () => {
         <Header>
           <Button size="lg" variant="secondary" asChild>
             <p>
-              <Coins /> {user.credits}
+              <Coins /> {user.credits || 0}
             </p>
           </Button>
-          <Button size="icon-lg" asChild>
-            <a href="/api/logout">
-              <LogOut />
-            </a>
+          <Button size="icon-lg" onClick={() => logout()}>
+            <LogOut />
           </Button>
         </Header>
       </div>

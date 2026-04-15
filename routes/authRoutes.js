@@ -14,9 +14,9 @@ const authRoutes = (app) => {
     },
   );
 
-  app.get("/api/logout", (req, res) => {
+  app.post("/api/logout", (req, res) => {
     req.logout();
-    res.redirect("/");
+    res.status(204).send();
   });
 
   app.get("/api/me", (req, res) => {

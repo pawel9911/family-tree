@@ -1,12 +1,19 @@
-import { useQuery } from "@tanstack/react-query";
+import {
+  useMutation,
+  useQuery,
+  type UseMutateFunction,
+} from "@tanstack/react-query";
 import { contextFactory } from "@utils";
 import { useMemo, type ReactNode } from "react";
 import { endpoints } from "~/api/endpoints";
+import { Loading } from "~/components/loading/loading";
 import { httpClient } from "~/lib/axios";
+import { queryClient } from "~/lib/react-query";
 import { type UserType } from "~/shared/types";
 
 interface AuthContextValue {
   user: UserType;
+  logout: UseMutateFunction;
 }
 
 const [AuthContext, useAuthContext] = contextFactory<AuthContextValue>("Auth");
@@ -26,15 +33,23 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         .then((response) => response.data),
   });
 
+  const { mutate: logout } = useMutation({
+    mutationFn: () => httpClient.post(endpoints.core.auth.logout),
+    onSuccess: () => {
+      queryClient.clear();
+    },
+  });
+
   const ctxValue = useMemo<AuthContextValue>(() => {
     return {
       user: user ?? null,
+      logout,
     };
-  }, [user]);
+  }, [user, logout]);
 
   return (
     <AuthContext.Provider value={ctxValue}>
-      {isLoading ? null : children}
+      {isLoading ? <Loading /> : children}
     </AuthContext.Provider>
   );
 };
