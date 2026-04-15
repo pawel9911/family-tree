@@ -11,6 +11,17 @@ mongoose.connect(require("./config/keys").mongoURI);
 
 const app = express();
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build/client"));
+
+  const path = require("node:path");
+  app.get("/*path", (req, res) => {
+    res.sendFile(
+      path.resolve(__dirname, "client", "build", "client", "index.html"),
+    );
+  });
+}
+
 app.use(express.json());
 app.use(
   cookieSession({
