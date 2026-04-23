@@ -5,8 +5,9 @@ export const getVariant = (variant: PaymentsVariant) => {
     case "PRO": {
       return {
         title: "Premium Pro",
+        price: 10000,
         subTitle: "Pełny reportaż w czasie rzeczywistym",
-        credits: 100,
+        credits: 1000,
         description:
           "Najwyższa wydajność i interakcja. Pozwól gościom stać się częścią reportażu i wyświetlaj ich zdjęcia na żywo.",
         checklist: [
@@ -23,13 +24,14 @@ export const getVariant = (variant: PaymentsVariant) => {
             Możliwość przesyłania <strong>wiadomości wideo</strong>
           </>,
         ],
-      };
+      } as const;
     }
     case "PREMIUM": {
       return {
         title: "Premium",
+        price: 5000,
         subTitle: "Złoty środek dla tradycyjnych wesel",
-        credits: 50,
+        credits: 500,
         description:
           "Najpopularniejszy wybór dla wesel do 120 osób. Zadbaj o to, by żadne spojrzenie i toast nie umknęły Twojej uwadze.",
         checklist: [
@@ -44,14 +46,15 @@ export const getVariant = (variant: PaymentsVariant) => {
           </>,
           "Priorytetowe wsparcie techniczne",
         ],
-      };
+      } as const;
     }
 
     default: {
       return {
         title: "Standard",
+        price: 1000,
         subTitle: "Dla kameralnych uroczystości",
-        credits: 10,
+        credits: 100,
         description:
           "Idealny, aby przetestować system i zebrać najważniejsze ujęcia od najbliższej rodziny.",
         checklist: [
@@ -63,7 +66,7 @@ export const getVariant = (variant: PaymentsVariant) => {
           </>,
           "Bezpieczne przechowywanie zdjęć",
         ],
-      };
+      } as const;
     }
   }
 };

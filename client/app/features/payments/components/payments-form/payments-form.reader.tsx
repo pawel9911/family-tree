@@ -1,23 +1,28 @@
 import { loadStripe, type StripeElementsOptions } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import { PaymentsForm } from "./payments-form";
+import { usePaymentVariant } from "../../hooks";
 
 const stripe = loadStripe(import.meta.env.VITE_STRIPE_PUBLISHABLE_KEY);
 
-const options: StripeElementsOptions = {
-  mode: "payment",
-  amount: 5000,
-  currency: "usd",
-  appearance: {
-    inputs: "condensed",
-    labels: "floating",
-  },
-};
+interface PaymentsFormReaderProps {
+  data: ReturnType<typeof usePaymentVariant>;
+}
 
-const PaymentsFormReader = () => {
+const PaymentsFormReader = ({ data }: PaymentsFormReaderProps) => {
+  const options: StripeElementsOptions = {
+    mode: "payment",
+    amount: data.price,
+    currency: "pln",
+    appearance: {
+      inputs: "condensed",
+      labels: "floating",
+    },
+  };
+
   return (
     <Elements stripe={stripe} options={options}>
-      <PaymentsForm />
+      <PaymentsForm data={data} />
     </Elements>
   );
 };

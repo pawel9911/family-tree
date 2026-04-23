@@ -1,8 +1,9 @@
 import { Box, Check, Gem, Zap } from "lucide-react";
+import { Link } from "react-router";
 import { Button } from "~/shared/ui";
 import { cn } from "~/utils";
 import type { PaymentsVariant } from "../../types";
-import { getVariant } from "../../utils";
+import { usePaymentVariant } from "../../hooks";
 
 interface PaymentsCardProps {
   variant?: PaymentsVariant;
@@ -10,7 +11,7 @@ interface PaymentsCardProps {
 
 export const PaymentsCard = ({ variant = "STANDARD" }: PaymentsCardProps) => {
   const { title, subTitle, credits, description, checklist } =
-    getVariant(variant);
+    usePaymentVariant(variant);
 
   const getTheme = () => {
     switch (variant) {
@@ -71,8 +72,10 @@ export const PaymentsCard = ({ variant = "STANDARD" }: PaymentsCardProps) => {
           </div>
         ))}
       </div>
-      <Button size="lg" className="h-10 px-4">
-        Wybierz ten pakiet
+      <Button size="lg" className="h-10 px-4" asChild>
+        <Link to={`/payments/summary?variant=${variant}`}>
+          Wybierz ten pakiet
+        </Link>
       </Button>
     </div>
   );

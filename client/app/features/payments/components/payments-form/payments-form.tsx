@@ -7,8 +7,15 @@ import { Lock } from "lucide-react";
 import type { SubmitEvent } from "react";
 import { Button } from "~/shared/ui";
 import { usePostPaymentsIntent } from "../../api/usePostPaymentsIntent";
+import { usePaymentVariant } from "../../hooks";
 
-export const PaymentsForm = () => {
+interface PaymentsFormProps {
+  data: ReturnType<typeof usePaymentVariant>;
+}
+
+export const PaymentsForm = ({
+  data: { formattedPrice, price, title },
+}: PaymentsFormProps) => {
   const stripe = useStripe();
   const elements = useElements();
   const { mutateAsync: postPaymentsIntent, isPending } =
@@ -23,7 +30,7 @@ export const PaymentsForm = () => {
       if (submitError) throw new Error(submitError.message);
 
       const re = await postPaymentsIntent({
-        payload: { amount: 5000 },
+        payload: { amount: price, title },
       });
 
       const { clientSecret } = re;
@@ -72,7 +79,7 @@ export const PaymentsForm = () => {
                 Suma:
               </span>
               <span className="text-2xl font-extrabold text-primary">
-                50,00 PLN
+                {formattedPrice}
               </span>
             </div>
 
