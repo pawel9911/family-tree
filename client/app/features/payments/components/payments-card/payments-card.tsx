@@ -7,9 +7,13 @@ import { usePaymentVariant } from "../../hooks";
 
 interface PaymentsCardProps {
   variant?: PaymentsVariant;
+  redirectButton?: boolean;
 }
 
-export const PaymentsCard = ({ variant = "STANDARD" }: PaymentsCardProps) => {
+export const PaymentsCard = ({
+  variant = "STANDARD",
+  redirectButton = false,
+}: PaymentsCardProps) => {
   const { title, subTitle, credits, description, checklist } =
     usePaymentVariant(variant);
 
@@ -72,11 +76,16 @@ export const PaymentsCard = ({ variant = "STANDARD" }: PaymentsCardProps) => {
           </div>
         ))}
       </div>
-      <Button size="lg" className="h-10 px-4" asChild>
-        <Link to={`/payments/summary?variant=${variant}`}>
-          Wybierz ten pakiet
-        </Link>
-      </Button>
+      {redirectButton ? (
+        <Button size="lg" className="h-10 px-4" asChild>
+          <Link
+            to={`/payments/summary?variant=${variant}`}
+            preventScrollReset={true}
+          >
+            Wybierz ten pakiet
+          </Link>
+        </Button>
+      ) : null}
     </div>
   );
 };

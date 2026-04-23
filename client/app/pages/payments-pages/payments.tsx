@@ -3,7 +3,7 @@ import { PaymentsBanner } from "~/features/payments";
 const Payments = () => {
   return (
     <div className="container">
-      <PaymentsBanner />
+      <PaymentsBanner redirectButton />
     </div>
   );
 };
