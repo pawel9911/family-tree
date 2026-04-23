@@ -1,11 +1,9 @@
-import { PaymentsBanner, PaymentsForm } from "~/features/payments";
+import { PaymentsBanner } from "~/features/payments";
 
 const Payments = () => {
   return (
     <div className="container">
-      <PaymentsBanner>
-        <PaymentsForm />
-      </PaymentsBanner>
+      <PaymentsBanner />
     </div>
   );
 };
