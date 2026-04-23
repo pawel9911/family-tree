@@ -17,6 +17,9 @@ const PaymentsFormReader = ({ data }: PaymentsFormReaderProps) => {
     appearance: {
       inputs: "condensed",
       labels: "floating",
+      variables: {
+        colorPrimary: "#6a000f",
+      },
     },
   };
 
