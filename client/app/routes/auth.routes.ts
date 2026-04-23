@@ -1,7 +1,7 @@
 import { route } from "@react-router/dev/routes";
 
 export const authRoutes = [
-  route("/dashboard", "./routes/dashboard.tsx"),
-  route("/payments", "./routes/payments.tsx"),
-  route("/payments/confirm", "./routes/payments-confirm.tsx"),
+  route("/dashboard", "./pages/dashboard.tsx"),
+  route("/payments", "./pages/payments-pages/payments.tsx"),
+  route("/payments/confirm", "./pages/payments-pages/payments-confirm.tsx"),
 ];
