@@ -1,4 +1,4 @@
-import { Navigate, Outlet } from "react-router";
+import { Link, Navigate, Outlet } from "react-router";
 import { Header } from "~/components";
 import { useAuthContext } from "~/providers";
 import { Button } from "~/shared/ui";
@@ -15,13 +15,18 @@ const Layout = () => {
       <div className="container">
         <Header>
           <Button size="lg" asChild>
-            <a href="/auth/google">Dołącz do nas</a>
+            <Link to="/login">Dołącz do nas</Link>
           </Button>
         </Header>
       </div>
       <main className="flex flex-1">
         <Outlet />
       </main>
+
+      <footer className="py-6 text-center text-sm text-muted-foreground">
+        © {new Date().getFullYear()} Weeding moments. Wszystkie prawa
+        zastrzeżone.
+      </footer>
     </div>
   );
 };

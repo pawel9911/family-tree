@@ -14,6 +14,7 @@ import { type UserType } from "~/shared/types";
 interface AuthContextValue {
   user: UserType;
   logout: UseMutateFunction;
+  loginWithGoogle: VoidFunction;
 }
 
 const [AuthContext, useAuthContext] = contextFactory<AuthContextValue>("Auth");
@@ -40,10 +41,15 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
     },
   });
 
+  const loginWithGoogle = () => {
+    globalThis.location.href = `/auth/google`;
+  };
+
   const ctxValue = useMemo<AuthContextValue>(() => {
     return {
       user: user ?? null,
       logout,
+      loginWithGoogle,
     };
   }, [user, logout]);
 

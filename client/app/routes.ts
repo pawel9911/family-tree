@@ -12,5 +12,10 @@ export default [
     route("*", "./pages/not-found.tsx"),
   ]),
 
+  layout("./layouts/unauth.tsx", [
+    route("/login", "./pages/login.tsx"),
+    route("/register", "./pages/register.tsx"),
+  ]),
+
   layout("./layouts/auth.tsx", authRoutes),
 ] satisfies RouteConfig;
