@@ -1,1 +1,1 @@
-export * from "./user-panel";
+export * from "./components";
