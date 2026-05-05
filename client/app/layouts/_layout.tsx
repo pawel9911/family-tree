@@ -12,8 +12,8 @@ const Layout = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="container">
-        <Header>
+      <div className="sticky mt-6 top-6 z-50 w-full backdrop-blur-md">
+        <Header className="container">
           <Button size="lg" asChild>
             <Link to="/login">Dołącz do nas</Link>
           </Button>

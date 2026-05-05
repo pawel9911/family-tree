@@ -17,7 +17,7 @@ interface NavigationProps {
 
 export const Navigation = ({ config }: NavigationProps) => {
   return (
-    <NavigationMenu>
+    <NavigationMenu className="self-stretch">
       <NavigationMenuList className="gap-2">
         {config.map((item) => (
           <NavigationMenuItem key={item.title}>
