@@ -28,7 +28,10 @@ export const Navigation = ({ config }: NavigationProps) => {
                 </NavigationMenuTrigger>
                 <NavigationMenuContent>
                   <div className="grid grid-cols-5 w-140 gap-3 p-4">
-                    <NavigationMenuContentCard {...item.content.card} />
+                    <NavigationMenuContentCard
+                      to={item.content.card.href}
+                      {...item.content.card}
+                    />
 
                     <div className="grid gap-2 col-span-3">
                       {item.content.links.map((link) => (

@@ -12,7 +12,7 @@ export interface ContentCard {
   description: string;
   buttonText: string;
   icon: LucideIcon;
-  onClick?: () => void;
+  href: string;
 }
 
 interface ItemWithContent {

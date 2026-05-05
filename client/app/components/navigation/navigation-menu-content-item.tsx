@@ -13,7 +13,7 @@ export const NavigationMenuContentItem = ({
   to,
 }: NavigationMenuContentItemProps) => {
   return (
-    <NavigationMenuLink asChild className="group">
+    <NavigationMenuLink asChild className="group gap-3 p-3 items-start">
       <Link to={to}>
         {Icon && (
           <Icon className="mt-1 size-4 shrink-0 text-muted-foreground group-hover:text-primary transition-colors" />

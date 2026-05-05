@@ -1,8 +1,10 @@
+import { Link, type LinkProps } from "react-router";
 import type { ContentCard } from "~/shared/types";
 import { Button } from "~/shared/ui";
 import { cn } from "~/utils";
 
 interface NavigationMenuContentCardProps extends ContentCard {
+  to: LinkProps["to"];
   className?: string;
 }
 
@@ -11,7 +13,7 @@ export const NavigationMenuContentCard = ({
   description,
   buttonText,
   icon: Icon,
-  onClick,
+  to,
   className,
 }: NavigationMenuContentCardProps) => {
   return (
@@ -40,12 +42,10 @@ export const NavigationMenuContentCard = ({
         </p>
       </div>
 
-      <Button
-        size="sm"
-        onClick={onClick}
-        className="relative z-10 mt-4 h-8 w-full rounded-lg text-[11px] font-medium transition-transform active:scale-95"
-      >
-        {buttonText}
+      <Button size="sm" asChild>
+        <Link to={to} preventScrollReset={true}>
+          {buttonText}
+        </Link>
       </Button>
     </div>
   );

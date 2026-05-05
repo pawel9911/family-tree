@@ -19,9 +19,11 @@ const navigationConfig: NavigationConfig = [
     content: {
       card: {
         title: "Wariant PRO",
-        description: "Zdobądź 2x więcej kredytów na start.",
-        buttonText: "Sprawdź",
+        description:
+          "Zyskaj 1000 kredytów. Dodawaj zdjęcia i ciesz się własną galerią.",
+        buttonText: "Kup PRO",
         icon: Zap,
+        href: "/payments/summary?variant=PRO",
       },
       links: [
         {
