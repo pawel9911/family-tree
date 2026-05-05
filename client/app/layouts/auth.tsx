@@ -16,12 +16,12 @@ const Auth = () => {
       <div className="sticky top-0 z-50 w-full backdrop-blur-md">
         <div className="container mx-auto">
           <Header>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-2">
               <div className="flex items-center gap-2 px-4 py-1.5 bg-primary/5 border border-primary/10 rounded-full group transition-colors hover:bg-primary/10">
                 <Coins size={18} className="text-primary animate-pulse" />
                 <span className="font-bold text-sm text-primary">
                   {user.credits || 0}{" "}
-                  <span className="text-[10px] uppercase tracking-wider opacity-70">
+                  <span className="hidden lg:inline text-[10px] uppercase tracking-wider opacity-70">
                     kredytów
                   </span>
                 </span>
