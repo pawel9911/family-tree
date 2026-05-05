@@ -1,8 +1,55 @@
+import {
+  Coins,
+  FolderLock,
+  HelpCircle,
+  LogOut,
+  PlusCircle,
+  User,
+  Zap,
+} from "lucide-react";
 import { Link, Navigate, Outlet } from "react-router";
-import { Header } from "~/components";
+import { Header, Navigation } from "~/components";
 import { useAuthContext } from "~/providers";
+import type { NavigationConfig } from "~/shared/types";
 import { Button } from "~/shared/ui";
-import { Coins, LogOut, User } from "lucide-react";
+
+const navigationConfig: NavigationConfig = [
+  {
+    title: "Projekty",
+    content: {
+      card: {
+        title: "Wariant PRO",
+        description: "Zdobądź 2x więcej kredytów na start.",
+        buttonText: "Sprawdź",
+        icon: Zap,
+      },
+      links: [
+        {
+          title: "Nowy projekt",
+          description: "Zacznij tworzyć od zera",
+          href: "/projects/new",
+          icon: PlusCircle,
+        },
+        {
+          title: "Twoje projekty",
+          description: "Zarządzaj swoją biblioteką",
+          href: "/projects",
+          icon: FolderLock,
+        },
+        {
+          title: "Pomoc & FAQ",
+          description: "Rozwiązania najczęstszych problemów",
+          href: "/help",
+          icon: HelpCircle,
+        },
+      ],
+    },
+  },
+  {
+    title: "Oferta",
+    href: "/payments",
+  },
+];
 
 const Auth = () => {
   const { user, logout } = useAuthContext();
@@ -16,8 +63,9 @@ const Auth = () => {
       <div className="sticky top-0 z-50 w-full backdrop-blur-md">
         <div className="container mx-auto">
           <Header>
+            <Navigation config={navigationConfig} />
             <div className="flex items-center gap-2">
-              <div className="flex items-center gap-2 px-4 py-1.5 bg-primary/5 border border-primary/10 rounded-full group transition-colors hover:bg-primary/10">
+              <div className="flex items-center gap-2 px-4 py-1.5 bg-primary/5 border border-primary/10 rounded-xl group transition-colors hover:bg-primary/10">
                 <Coins size={18} className="text-primary animate-pulse" />
                 <span className="font-bold text-sm text-primary">
                   {user.credits || 0}{" "}
