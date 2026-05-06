@@ -15,7 +15,7 @@ export const Header = ({ children, className }: HeaderProps) => {
   return (
     <header
       className={cn(
-        "flex items-center justify-between px-3 rounded-xl bg-secondary/10",
+        "flex items-center justify-between px-3 rounded-xl bg-secondary/10 backdrop-blur-md",
         className,
       )}
     >

@@ -62,7 +62,7 @@ const Auth = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <div className="sticky mt-6 top-6 z-50 w-full backdrop-blur-md">
+      <div className="sticky mt-6 top-6 z-50 w-full">
         <Header className="container">
           <Navigation config={navigationConfig} />
           <div className="flex items-center gap-2">
