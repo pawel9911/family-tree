@@ -1,3 +1,4 @@
+export * from "./accordion";
 export * from "./button";
 export * from "./navigation-menu";
 export * from "./tabs";
