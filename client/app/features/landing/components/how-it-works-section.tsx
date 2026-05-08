@@ -26,7 +26,7 @@ export const HowItWorksSection = () => {
   return (
     <section className="py-24">
       <div className="container">
-        <div className="text-center max-w-2xl mx-auto mb-16">
+        <div className="max-w-2xl text-center mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-extrabold tracking-tighter text-primary mb-4">
             Trzy kroki do{" "}
             <span className="text-black/85">wspólnych wspomnień</span>
@@ -57,7 +57,7 @@ export const HowItWorksSection = () => {
                 {step.title}
               </h3>
 
-              <p className="text-black/85 leading-relaxed text-sm">
+              <p className="text-black/85 leading-relaxed text-sm font-medium">
                 {step.description}
               </p>
 

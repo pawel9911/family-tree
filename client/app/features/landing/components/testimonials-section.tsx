@@ -29,15 +29,13 @@ export const TestimonialsSection = () => {
   return (
     <section className="py-24 bg-white overflow-hidden">
       <div className="container">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
-          <div className="max-w-2xl text-left">
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-primary mb-4">
-              Klienci <span className="text-black/85">nas uwielbiają.</span>
-            </h2>
-            <p className="text-black/85 font-medium italic">
-              Zobacz, jak Moments odmieniło ich najważniejszy dzień.
-            </p>
-          </div>
+        <div className="max-w-2xl text-left mb-16">
+          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tighter text-primary mb-4">
+            Klienci <span className="text-black/85">nas uwielbiają.</span>
+          </h2>
+          <p className="text-black/85 font-medium italic">
+            Zobacz, jak Moments odmieniło ich najważniejszy dzień.
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -49,8 +47,8 @@ export const TestimonialsSection = () => {
                 "shadow-xl transition-all hover:shadow-2xl hover:-translate-y-2 relative",
               )}
             >
-              <div className="absolute -top-4 left-8 p-3 rounded-xl bg-primary shadow-lg shadow-primary/20">
-                <Quote className="text-white" size={20} fill="white" />
+              <div className="absolute -top-5 left-8 p-3.5 rounded-xl bg-primary shadow-lg shadow-primary/20">
+                <Quote className="text-white" size={18} fill="white" />
               </div>
 
               <div className="flex gap-1 mb-6 mt-2">
