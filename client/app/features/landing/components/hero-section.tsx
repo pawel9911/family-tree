@@ -24,7 +24,7 @@ export const HeroSection = () => {
           <p className="flex items-center justify-center mb-10 gap-4 text-lg font-bold text-black/85 uppercase tracking-widest">
             <span className="w-1/6 h-0.5 bg-linear-to-r from-transparent to-primary/90" />
             {""}
-            Dołączyło 500+ par młodych
+            Zaufało nam już ponad 500 klientów
             {""}
             <span className="w-1/6 h-0.5 bg-linear-to-r from-primary/90 to-transparent" />
           </p>
@@ -35,8 +35,8 @@ export const HeroSection = () => {
           </h1>
 
           <p className="text-lg md:text-xl text-black/85 max-w-2xl mx-auto mb-10 leading-relaxed font-medium">
-            Zbierz zdjęcia od wszystkich gości bez straty jakości. Twoje wesele
-            zasługuje na galerię, która żyje razem z Wami.
+            Zgromadź wspomnienia od wszystkich gości w pełnej rozdzielczości.
+            Pozwól swoim przeżyciom ożyć w wyjątkowej galerii.
           </p>
 
           <Button
