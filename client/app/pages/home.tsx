@@ -1,4 +1,5 @@
 import {
+  FAQSection,
   HeroSection,
   HowItWorksSection,
   TestimonialsSection,
@@ -10,6 +11,7 @@ const Home = () => {
       <HeroSection />
       <HowItWorksSection />
       <TestimonialsSection />
+      <FAQSection />
     </div>
   );
 };
