@@ -1,9 +1,10 @@
-import { HeroSection } from "~/features/landing";
+import { HeroSection, HowItWorksSection } from "~/features/landing";
 
 const Home = () => {
   return (
     <div className="w-full">
       <HeroSection />
+      <HowItWorksSection />
     </div>
   );
 };
