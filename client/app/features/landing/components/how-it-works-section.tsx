@@ -5,7 +5,7 @@ const steps = [
   {
     title: "Wygeneruj kod QR",
     description:
-      "Wydrukuj personalizowany kod i postaw go na stołach weselnych. Dopasuj go do stylu Waszych zaproszeń.",
+      "Wydrukuj personalizowany kod i postaw go na stołach. Dopasuj go do swojego stylu.",
     icon: <QrCode className="text-white" size={24} />,
   },
   {
