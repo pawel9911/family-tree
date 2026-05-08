@@ -41,7 +41,7 @@ export const HeroSection = () => {
 
           <Button
             size="lg"
-            className="h-16 px-12 text-xl font-bold rounded-xl shadow-2xl shadow-primary/20 hover:scale-[1.02] transition-transform"
+            className="h-16 px-10 text-xl font-bold hover:scale-105"
             asChild
           >
             <Link to="/register">Rozpocznij za darmo</Link>
