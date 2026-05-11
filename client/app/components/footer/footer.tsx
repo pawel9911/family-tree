@@ -1,23 +1,16 @@
-import type { LucideIcon } from "lucide-react";
 import { Link } from "react-router";
 import Logo from "~/assets/logo.png";
+import type { ContentLink } from "~/shared/types";
 import { cn } from "~/utils";
 
 interface FooterProps {
   children: React.ReactNode;
   footerConfig: {
     links: {
-      label: string;
-      items: {
-        label: string;
-        href: string;
-      }[];
+      title: string;
+      items: ContentLink[];
     }[];
-    socials: {
-      icon: LucideIcon;
-      label: string;
-      href: string;
-    }[];
+    socials: ContentLink[];
   };
 }
 
@@ -50,16 +43,16 @@ export const Footer = ({
           {links.map((link, i) => (
             <div key={i} className="text-center md:text-left">
               <h4 className="font-bold text-white mb-4 uppercase tracking-widest text-xs">
-                {link.label}
+                {link.title}
               </h4>
               <ul className="space-y-3">
                 {link.items.map((item) => (
-                  <li key={item.label}>
+                  <li key={item.title}>
                     <Link
                       to={item.href}
                       className="text-sm text-white/80 hover:text-white transition-colors"
                     >
-                      {item.label}
+                      {item.title}
                     </Link>
                   </li>
                 ))}
@@ -80,9 +73,9 @@ export const Footer = ({
                     "p-2.5 rounded-lg bg-white/5 border border-white/10 text-white transition-all",
                     "hover:bg-white hover:text-primary hover:-translate-y-1",
                   )}
-                  aria-label={social.label}
+                  aria-label={social.title}
                 >
-                  <social.icon size={20} />
+                  {social.icon ? <social.icon size={20} /> : social.title}
                 </a>
               ))}
             </div>

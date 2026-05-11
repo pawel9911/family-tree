@@ -9,52 +9,52 @@ import { cn } from "~/utils";
 const footerConfig = {
   links: [
     {
-      label: "Produkt",
+      title: "Produkt",
       items: [
         {
-          label: "Funkcje",
+          title: "Funkcje",
           href: "#",
         },
         {
-          label: "Cennik",
+          title: "Cennik",
           href: "#",
         },
         {
-          label: "Inspiracje",
+          title: "Inspiracje",
           href: "#",
         },
         {
-          label: "Jak to działa",
+          title: "Jak to działa",
           href: "#",
         },
       ],
     },
     {
-      label: "Pomoc",
+      title: "Pomoc",
       items: [
         {
-          label: "Regulamin",
+          title: "Regulamin",
           href: "/terms",
         },
         {
-          label: "Prywatność",
+          title: "Prywatność",
           href: "/privacy",
         },
         {
-          label: "Kontakt",
+          title: "Kontakt",
           href: "#",
         },
         {
-          label: "Pomoc techniczna",
+          title: "Pomoc techniczna",
           href: "#",
         },
       ],
     },
   ],
   socials: [
-    { icon: Instagram, label: "Instagram", href: "#" },
-    { icon: Facebook, label: "Facebook", href: "#" },
-    { icon: PinIcon, label: "Pinterest", href: "#" },
+    { icon: Instagram, title: "Instagram", href: "#" },
+    { icon: Facebook, title: "Facebook", href: "#" },
+    { icon: PinIcon, title: "Pinterest", href: "#" },
   ],
 };
 
