@@ -1,31 +1,36 @@
+import type { LucideIcon } from "lucide-react";
 import { Link } from "react-router";
 import Logo from "~/assets/logo.png";
-import { Button } from "~/shared/ui";
 import { cn } from "~/utils";
-import { footerLinks, socials } from "../../config";
 
-export const Footer = () => {
+interface FooterProps {
+  children: React.ReactNode;
+  footerConfig: {
+    links: {
+      label: string;
+      items: {
+        label: string;
+        href: string;
+      }[];
+    }[];
+    socials: {
+      icon: LucideIcon;
+      label: string;
+      href: string;
+    }[];
+  };
+}
+
+export const Footer = ({
+  children,
+  footerConfig: { links, socials },
+}: FooterProps) => {
   const currentYear = new Date().getFullYear();
 
   return (
     <footer className="w-full bg-primary">
       <div className="container">
-        <div className="py-16 border-b border-white/10 flex flex-col items-center text-center">
-          <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-white mb-6">
-            Gotowi, by uwiecznić{" "}
-            <span className="opacity-50 italic">Wasz dzień?</span>
-          </h2>
-          <Button
-            size="lg"
-            className="h-14 px-8 text-lg font-bold bg-white text-primary hover:bg-gray-100! hover:scale-105"
-            asChild
-          >
-            <Link to="/register">Rozpocznij za darmo</Link>
-          </Button>
-          <p className="mt-6 text-white text-sm font-medium uppercase tracking-widest">
-            Dołącz do ponad 500 klientów
-          </p>
-        </div>
+        {children}
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 py-16">
           <div className="flex flex-col items-center md:items-start text-center md:text-left">
@@ -42,13 +47,13 @@ export const Footer = () => {
             </p>
           </div>
 
-          {footerLinks.map((footerLink, i) => (
+          {links.map((link, i) => (
             <div key={i} className="text-center md:text-left">
               <h4 className="font-bold text-white mb-4 uppercase tracking-widest text-xs">
-                {footerLink.label}
+                {link.label}
               </h4>
               <ul className="space-y-3">
-                {footerLink.items.map((item) => (
+                {link.items.map((item) => (
                   <li key={item.label}>
                     <Link
                       to={item.href}
@@ -77,7 +82,7 @@ export const Footer = () => {
                   )}
                   aria-label={social.label}
                 >
-                  {social.icon}
+                  <social.icon size={20} />
                 </a>
               ))}
             </div>

@@ -1,6 +1,5 @@
 import {
   FAQSection,
-  Footer,
   HeroSection,
   HowItWorksSection,
   TestimonialsSection,
@@ -15,7 +14,6 @@ const Home = () => {
       <HowItWorksSection />
       <TestimonialsSection />
       <FAQSection />
-      <Footer />
     </div>
   );
 };
