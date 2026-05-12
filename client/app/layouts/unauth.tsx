@@ -43,7 +43,7 @@ const Unauth = () => {
 
         <div className="relative z-10 flex gap-8 text-white/50 text-[10px] font-bold uppercase tracking-[0.2em]">
           <span>© 2026 Wedding moments</span>
-          <span>Polityka prywatności</span>
+          <Link to="/privacy">Polityka prywatności</Link>
         </div>
       </div>
 
