@@ -27,7 +27,7 @@ const testimonials = [
 
 export const TestimonialsSection = () => {
   return (
-    <section className="py-24 bg-white overflow-hidden">
+    <section className="py-32">
       <div className="container">
         <div className="max-w-2xl text-left mb-16">
           <h2 className="text-3xl md:text-5xl font-extrabold tracking-tighter text-primary mb-4">

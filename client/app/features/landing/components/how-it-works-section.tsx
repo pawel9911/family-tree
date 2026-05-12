@@ -24,7 +24,7 @@ const steps = [
 
 export const HowItWorksSection = () => {
   return (
-    <section className="py-24">
+    <section className="py-32">
       <div className="container">
         <div className="max-w-2xl text-center mx-auto mb-16">
           <h2 className="text-3xl md:text-5xl font-extrabold tracking-tighter text-primary mb-4">

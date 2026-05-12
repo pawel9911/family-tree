@@ -31,7 +31,7 @@ const features = [
 export const WhyUsSection = () => {
   return (
     <section className="py-32">
-      <div className="container mx-auto px-6">
+      <div className="container">
         <div className="flex flex-col items-center text-center mb-24">
           <span className="text-primary font-bold italic uppercase mb-4">
             Dlaczego my?
