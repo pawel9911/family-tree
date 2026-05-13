@@ -30,4 +30,12 @@ interface ItemSimple {
   content?: never;
 }
 
-export type NavigationConfig = (ItemWithContent | ItemSimple)[];
+export type MainNavConfig = (ItemWithContent | ItemSimple)[];
+
+export type FooterNavConfig = {
+  links: {
+    title: string;
+    items: ContentLink[];
+  }[];
+  socials: ContentLink[];
+};

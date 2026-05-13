@@ -1,5 +1,5 @@
 import { Link } from "react-router";
-import type { NavigationConfig } from "~/shared/types";
+import type { MainNavConfig } from "~/shared/types";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -12,7 +12,7 @@ import { NavigationMenuContentCard } from "./navigation-menu-content-card";
 import { NavigationMenuContentItem } from "./navigation-menu-content-item";
 
 interface NavigationProps {
-  config: NavigationConfig;
+  config: MainNavConfig;
 }
 
 export const Navigation = ({ config }: NavigationProps) => {

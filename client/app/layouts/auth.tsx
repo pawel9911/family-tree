@@ -1,57 +1,9 @@
-import {
-  Coins,
-  FolderLock,
-  HelpCircle,
-  LogOut,
-  PlusCircle,
-  User,
-  Zap,
-} from "lucide-react";
+import { Coins, LogOut, User } from "lucide-react";
 import { Link, Navigate, Outlet } from "react-router";
 import { Header, Navigation } from "~/components";
 import { useAuthContext } from "~/providers";
-import type { NavigationConfig } from "~/shared/types";
+import { mainNavConfig } from "~/shared/config";
 import { Button } from "~/shared/ui";
-
-const navigationConfig: NavigationConfig = [
-  {
-    title: "Projekty",
-    content: {
-      card: {
-        title: "Wariant PRO",
-        description:
-          "Zyskaj 1000 kredytów. Dodawaj zdjęcia i ciesz się własną galerią.",
-        buttonText: "Kup PRO",
-        icon: Zap,
-        href: "/payments/summary?variant=PRO",
-      },
-      links: [
-        {
-          title: "Nowy projekt",
-          description: "Zacznij tworzyć od zera",
-          href: "/projects/new",
-          icon: PlusCircle,
-        },
-        {
-          title: "Twoje projekty",
-          description: "Zarządzaj swoją biblioteką",
-          href: "/projects",
-          icon: FolderLock,
-        },
-        {
-          title: "Pomoc & FAQ",
-          description: "Rozwiązania najczęstszych problemów",
-          href: "/help",
-          icon: HelpCircle,
-        },
-      ],
-    },
-  },
-  {
-    title: "Oferta",
-    href: "/payments",
-  },
-];
 
 const Auth = () => {
   const { user, logout } = useAuthContext();
@@ -63,7 +15,7 @@ const Auth = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <Header className="container" variant="sticky" forceVisible>
-        <Navigation config={navigationConfig} />
+        <Navigation config={mainNavConfig} />
         <div className="flex items-center gap-2">
           <div className="flex items-center gap-2 px-4 py-1.5 bg-primary/5 border border-primary/10 rounded-xl group transition-colors hover:bg-primary/10">
             <Coins size={18} className="text-primary animate-pulse" />

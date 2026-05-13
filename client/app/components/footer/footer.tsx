@@ -1,22 +1,16 @@
 import { Link } from "react-router";
 import Logo from "~/assets/logo.png";
-import type { ContentLink } from "~/shared/types";
+import type { FooterNavConfig } from "~/shared/types";
 import { cn } from "~/utils";
 
 interface FooterProps {
   children: React.ReactNode;
-  footerConfig: {
-    links: {
-      title: string;
-      items: ContentLink[];
-    }[];
-    socials: ContentLink[];
-  };
+  config: FooterNavConfig;
 }
 
 export const Footer = ({
   children,
-  footerConfig: { links, socials },
+  config: { links, socials },
 }: FooterProps) => {
   const currentYear = new Date().getFullYear();
 

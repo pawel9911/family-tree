@@ -1,60 +1,8 @@
-import { Facebook, Instagram, PinIcon } from "lucide-react";
 import { Link, Navigate, Outlet } from "react-router";
 import { Footer, Header } from "~/components";
 import { useAuthContext } from "~/providers";
+import { footerNavConfig } from "~/shared/config";
 import { Button } from "~/shared/ui";
-
-const footerConfig = {
-  links: [
-    {
-      title: "Produkt",
-      items: [
-        {
-          title: "Funkcje",
-          href: "#",
-        },
-        {
-          title: "Cennik",
-          href: "#",
-        },
-        {
-          title: "Inspiracje",
-          href: "#",
-        },
-        {
-          title: "Jak to działa",
-          href: "#",
-        },
-      ],
-    },
-    {
-      title: "Pomoc",
-      items: [
-        {
-          title: "Regulamin",
-          href: "/terms",
-        },
-        {
-          title: "Prywatność",
-          href: "/privacy",
-        },
-        {
-          title: "Kontakt",
-          href: "#",
-        },
-        {
-          title: "Pomoc techniczna",
-          href: "#",
-        },
-      ],
-    },
-  ],
-  socials: [
-    { icon: Instagram, title: "Instagram", href: "#" },
-    { icon: Facebook, title: "Facebook", href: "#" },
-    { icon: PinIcon, title: "Pinterest", href: "#" },
-  ],
-};
 
 const Layout = () => {
   const { user } = useAuthContext();
@@ -73,7 +21,7 @@ const Layout = () => {
       <main className="flex flex-1">
         <Outlet />
       </main>
-      <Footer footerConfig={footerConfig}>
+      <Footer config={footerNavConfig}>
         <div className="py-16 border-b border-white/10 flex flex-col items-center text-center">
           <h2 className="text-3xl md:text-5xl font-black tracking-tighter text-white mb-6">
             Gotowi, by uwiecznić{" "}
