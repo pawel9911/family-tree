@@ -7,7 +7,10 @@ import {
 import { authRoutes } from "./routes/auth.routes";
 
 export default [
-  layout("./layouts/_layout.tsx", [index("./pages/home.tsx")]),
+  layout("./layouts/_layout.tsx", [
+    index("./pages/home.tsx"),
+    route("/privacy", "./pages/privacy.tsx"),
+  ]),
 
   layout("./layouts/unauth.tsx", [
     route("/login", "./pages/login.tsx"),
