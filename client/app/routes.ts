@@ -10,6 +10,7 @@ export default [
   layout("./layouts/_layout.tsx", [
     index("./pages/home.tsx"),
     route("/privacy", "./pages/privacy.tsx"),
+    route("/terms", "./pages/terms.tsx"),
   ]),
 
   layout("./layouts/unauth.tsx", [
