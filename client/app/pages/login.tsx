@@ -1,9 +1,10 @@
-import { Button } from "~/shared/ui";
 import { Link } from "react-router";
-import { GoogleIcon } from "~/shared/icons";
 import { useAuthContext } from "~/providers";
+import { GoogleIcon } from "~/shared/icons";
+import type { UnauthRouteHandle } from "~/shared/types";
+import { Button } from "~/shared/ui";
 
-export const handle = {
+export const handle: UnauthRouteHandle = {
   title: (
     <>
       Zacznij tworzyć <br /> z nami.

@@ -1,17 +1,24 @@
-import { Navigate, Outlet, Link, useMatches, useNavigate } from "react-router";
-import { useAuthContext } from "~/providers";
 import { LayoutDashboard, X } from "lucide-react";
+import {
+  Link,
+  Navigate,
+  Outlet,
+  useMatches,
+  useNavigate,
+  type UIMatch,
+} from "react-router";
+import { useAuthContext } from "~/providers";
+import type { UnauthRouteHandle } from "~/shared/types";
 import { Button } from "~/shared/ui";
+
+type UnauthRouteMatch = UIMatch<unknown, UnauthRouteHandle>;
 
 const Unauth = () => {
   const { user } = useAuthContext();
   const navigate = useNavigate();
-  const matches = useMatches();
+  const matches = useMatches() as UnauthRouteMatch[];
 
-  const currentHandle = matches.find((m) => m.handle)?.handle as {
-    title?: string;
-    description?: string;
-  };
+  const currentHandle = matches.find((m) => m.handle)?.handle;
 
   if (user) {
     return <Navigate to="/dashboard" replace />;
@@ -34,10 +41,10 @@ const Unauth = () => {
 
         <div className="relative z-10">
           <h1 className="text-6xl font-black text-white italic uppercase tracking-tighter leading-none mb-6">
-            {currentHandle.title}
+            {currentHandle?.title}
           </h1>
           <p className="text-primary-foreground/80 font-medium text-lg max-w-md italic">
-            {currentHandle.description}
+            {currentHandle?.description}
           </p>
         </div>
 
