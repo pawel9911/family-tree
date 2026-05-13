@@ -1,13 +1,14 @@
 import { useEffect, useState, type ReactNode } from "react";
 import { Link } from "react-router";
 import { useAuthContext } from "~/providers";
-import Logo from "../../assets/logo.png";
+import type { HeaderVariant } from "~/shared/types";
 import { cn } from "~/utils";
+import Logo from "../../assets/logo.png";
 
 interface HeaderProps {
   children?: ReactNode;
   className?: string;
-  variant?: "fixed" | "sticky";
+  variant?: HeaderVariant;
   forceVisible?: boolean;
 }
 
@@ -37,7 +38,7 @@ export const Header = ({
       className={cn(
         "z-50 w-full transition-all duration-300 ease-in-out bg-card/80 rounded-xl",
         variant === "fixed" ? "fixed top-0 left-0" : "sticky top-0",
-        isShown ? "translate-y-6 opacity-100" : "-translate-y-full opacity-0",
+        isShown ? "pt-6 opacity-100" : "-translate-y-full opacity-0",
       )}
     >
       <div

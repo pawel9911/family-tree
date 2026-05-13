@@ -1,19 +1,31 @@
-import { Link, Navigate, Outlet } from "react-router";
+import { Link, Navigate, Outlet, useMatches, type UIMatch } from "react-router";
 import { Footer, Header } from "~/components";
 import { useAuthContext } from "~/providers";
 import { footerNavConfig } from "~/shared/config";
+import type { HeaderRouteHandle } from "~/shared/types";
 import { Button } from "~/shared/ui";
+
+type LayoutRouteMatch = UIMatch<unknown, HeaderRouteHandle>;
 
 const Layout = () => {
   const { user } = useAuthContext();
+  const matches = useMatches() as LayoutRouteMatch[];
 
   if (user) {
     return <Navigate to="/dashboard" replace />;
   }
 
+  const match = [...matches].reverse().find((match) => match.handle?.variant);
+
+  const activeVariant = match?.handle?.variant ?? undefined;
+
   return (
     <div className="min-h-screen flex flex-col">
-      <Header className="container">
+      <Header
+        className="container"
+        variant={activeVariant}
+        forceVisible={activeVariant === "sticky"}
+      >
         <Button size="lg" asChild>
           <Link to="/register">Dołącz do nas</Link>
         </Button>
