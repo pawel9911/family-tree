@@ -69,7 +69,7 @@ const TermsPage = () => {
                 e-mail:{" "}
                 <a
                   href="mailto:[Twój e-mail kontaktowy]"
-                  className="text-primary font-bold underline decoration-primary/30 hover:decoration-primary transition-all"
+                  className="text-primary font-bold underline decoration-primary hover:decoration-primary transition-all"
                 >
                   [Twój e-mail kontaktowy]
                 </a>
