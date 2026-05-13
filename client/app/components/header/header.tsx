@@ -35,7 +35,7 @@ export const Header = ({
   return (
     <header
       className={cn(
-        "z-50 w-full transition-all duration-300 ease-in-out",
+        "z-50 w-full transition-all duration-300 ease-in-out bg-card/80 rounded-xl",
         variant === "fixed" ? "fixed top-0 left-0" : "sticky top-0",
         isShown ? "translate-y-6 opacity-100" : "-translate-y-full opacity-0",
       )}
