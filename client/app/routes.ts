@@ -7,10 +7,7 @@ import {
 import { authRoutes } from "./routes/auth.routes";
 
 export default [
-  layout("./layouts/_layout.tsx", [
-    index("./pages/home.tsx"),
-    route("*", "./pages/not-found.tsx"),
-  ]),
+  layout("./layouts/_layout.tsx", [index("./pages/home.tsx")]),
 
   layout("./layouts/unauth.tsx", [
     route("/login", "./pages/login.tsx"),
@@ -18,4 +15,6 @@ export default [
   ]),
 
   layout("./layouts/auth.tsx", authRoutes),
+
+  route("*", "./pages/not-found.tsx"),
 ] satisfies RouteConfig;
